@@ -1,0 +1,19 @@
+index.html
+  s_35116b34b5fb3c::t_69a5a390a8d002 36-39,41-65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2ab0386f37a93551c87248e19a028a2ed6732517",
+  "prompts": {},
+  "sessions": {
+    "s_35116b34b5fb3c": {
+      "agent_id": {
+        "tool": "codefuse",
+        "id": "cab93793-9042-4ddb-b235-ef69abba22df",
+        "model": "codefuse_official_channel/GLM-5.3"
+      },
+      "human_author": "Eatingc4 <Eatingc4@users.noreply.github.com>"
+    }
+  }
+}
