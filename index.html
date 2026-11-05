@@ -33,10 +33,35 @@
 <body>
   <main class="guide" aria-label="婚礼指南，共五页">
     <img src="page-1.webp" alt="婚礼指南第1页" width="1152" height="2048" fetchpriority="high" decoding="async">
-    <img src="page-2.webp" alt="婚礼指南第2页" width="1152" height="2048" loading="lazy" decoding="async" fetchpriority="low">
-    <img src="page-3.webp" alt="婚礼指南第3页" width="1152" height="2048" loading="lazy" decoding="async" fetchpriority="low">
-    <img src="page-4.webp" alt="婚礼指南第4页" width="1152" height="2048" loading="lazy" decoding="async" fetchpriority="low">
-    <img src="page-5.webp" alt="婚礼指南第5页" width="1152" height="2048" loading="lazy" decoding="async" fetchpriority="low">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1152' height='2048'%3E%3Crect width='1152' height='2048' fill='%23faf6ee'/%3E%3C/svg%3E" data-src="page-2.webp" alt="婚礼指南第2页" width="1152" height="2048" decoding="async" fetchpriority="low">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1152' height='2048'%3E%3Crect width='1152' height='2048' fill='%23faf6ee'/%3E%3C/svg%3E" data-src="page-3.webp" alt="婚礼指南第3页" width="1152" height="2048" decoding="async" fetchpriority="low">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1152' height='2048'%3E%3Crect width='1152' height='2048' fill='%23faf6ee'/%3E%3C/svg%3E" data-src="page-4.webp" alt="婚礼指南第4页" width="1152" height="2048" decoding="async" fetchpriority="low">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1152' height='2048'%3E%3Crect width='1152' height='2048' fill='%23faf6ee'/%3E%3C/svg%3E" data-src="page-5.webp" alt="婚礼指南第5页" width="1152" height="2048" decoding="async" fetchpriority="low">
   </main>
+  <script>
+    (() => {
+      const images = [...document.querySelectorAll('img[data-src]')];
+      if (!('IntersectionObserver' in window)) {
+        images.forEach(img => { img.src = img.dataset.src; delete img.dataset.src; });
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const img = entry.target;
+          img.src = img.dataset.src;
+          delete img.dataset.src;
+          observer.unobserve(img);
+        });
+      }, { rootMargin: '35% 0px' });
+      images.forEach(img => observer.observe(img));
+    })();
+  </script>
+  <noscript>
+    <img src="page-2.webp" alt="婚礼指南第2页" width="1152" height="2048" style="display:none">
+    <img src="page-3.webp" alt="婚礼指南第3页" width="1152" height="2048" style="display:none">
+    <img src="page-4.webp" alt="婚礼指南第4页" width="1152" height="2048" style="display:none">
+    <img src="page-5.webp" alt="婚礼指南第5页" width="1152" height="2048" style="display:none">
+  </noscript>
 </body>
 </html>
